@@ -28,6 +28,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import com.nextcloud.client.GrantStoragePermissionRule;
+import com.nextcloud.client.RetryTestRule;
 import com.nextcloud.client.account.User;
 import com.nextcloud.client.account.UserAccountManager;
 import com.nextcloud.client.account.UserAccountManagerImpl;
@@ -54,6 +55,9 @@ public class DrawerActivityIT extends AbstractIT {
     @Rule public IntentsTestRule<FileDisplayActivity> activityRule = new IntentsTestRule<>(FileDisplayActivity.class,
                                                                                            true,
                                                                                            false);
+
+    @Rule
+    public final RetryTestRule retryTestRule = new RetryTestRule();
 
     @Rule
     public final TestRule permissionRule = GrantStoragePermissionRule.grant();
